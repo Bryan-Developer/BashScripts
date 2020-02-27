@@ -1,0 +1,29 @@
+#!/bin/bash
+git init
+git config --global user.name "Bryan Antonio Alvarado Villalobos"
+git config --global user.email "bryan.developer.alvarado@gmail.com"
+pwd=$(pwd)
+pwd=${pwd##*/}
+if [ ! -f "README.md" ]; then
+	rm -rf README.md
+	touch README.md
+	echo $pwd >> README.md
+fi
+read -r -p 'Ingrese la direccion de github:' ghurl
+read -r -p 'Ingrese la direccion de gitlab:' glurl
+git init
+git add README.md
+git commit -m "Commit Initial - Creacion del repositorio"
+git remote add github $ghurl
+git remote add gilab $glurl
+git remote add origin $ghurl
+git remote set-url --add --push origin $glurl
+git remote set-url --add --push origin $ghurl
+git push --set-upstream origin master
+git checkout -b "development"
+arbolMarkdown > README.md
+git add .
+git commit -m "Agregando base del repositorio"
+git push --set-upstream origin development
+echo 'Listo Sin Errores'
+printf "\n"

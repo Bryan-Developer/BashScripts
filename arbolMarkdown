@@ -1,0 +1,9 @@
+#!/bin/bash
+pwd=$(pwd)
+pwd=${pwd##*/}
+cd ..
+tree=$(tree ./${pwd} -tf --noreport -I '*~' --charset ascii $1 |
+       sed -e 's/| \+/  /g' -e 's/[|`]-\+/ */g' -e 's:\(* \)\(\(.*/\)\([^/]\+\)\):\1[\4](\2):g')
+printf "# Repositorio ${pwd} \n${tree}"
+# Thanks to https://stackoverflow.com/users/487846/simon
+printf "\n"
