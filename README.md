@@ -1,6 +1,7 @@
 # Repositorio BashScripts 
 ./BashScripts
+ * [arbolMarkdown](./BashScripts/arbolMarkdown)
  * [GitScripts](./BashScripts/GitScripts)
    * [iniciarRepo](./BashScripts/GitScripts/iniciarRepo)
- * [arbolMarkdown](./BashScripts/arbolMarkdown)
+   * [actualizarRepo](./BashScripts/GitScripts/actualizarRepo)
  * [README.md](./BashScripts/README.md)

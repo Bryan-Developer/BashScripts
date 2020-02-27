@@ -1,0 +1,20 @@
+#!/bin/bash
+if [ -d ".git" ]; then
+    branch=$(git symbolic-ref HEAD | cut -d/ -f3-)
+    if [ $branch != "master" ]; then
+        echo "Rama diferente de master"
+        arbolMarkdown > README.md
+        git add .
+        read -r -p 'Ingrese el mensaje en el commit ' commit
+        git commit -m "$commit"
+        git push
+        echo "Actualizada rama " $branch
+    else
+        echo "Rama master"
+        echo "No se puede actualizar en la rama master"
+        echo "Pruebe -- git checkout <rama> -- en alguna de las ramas"
+        git branch -a
+fi
+else
+    echo "Ejecuta el comando iniciarRepo y sigue los pasos"
+fi
