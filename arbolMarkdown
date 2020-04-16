@@ -2,7 +2,7 @@
 pwd=$(pwd)
 pwd=${pwd##*/}
 cd ..
-tree=$(tree -d -f -I "node_modules" ./${pwd} -tf --noreport -I '*~' --charset ascii $1 |
+tree=$(tree -d -f -I "node_modules" ./${pwd} -tf --noreport --charset ascii $1 |
        sed -e 's/| \+/  /g' -e 's/[|`]-\+/ */g' -e 's:\(* \)\(\(.*/\)\([^/]\+\)\):\1[\4](\2):g')
 printf "# Repositorio ${pwd} \n${tree}"
 # Thanks to https://stackoverflow.com/users/487846/simon
